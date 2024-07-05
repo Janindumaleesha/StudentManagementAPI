@@ -14,7 +14,7 @@ namespace StudentManagementAPI.Services.Students
             throw new NotImplementedException();
         }
 
-        public Student DeleteStudent(int id)
+        public void DeleteStudent(Student student)
         {
             throw new NotImplementedException();
         }
@@ -29,7 +29,7 @@ namespace StudentManagementAPI.Services.Students
             throw new NotImplementedException();
         }
 
-        public Student UpdateStudent(int id, Student student)
+        public void UpdateStudent(int id, Student student)
         {
             throw new NotImplementedException();
         }

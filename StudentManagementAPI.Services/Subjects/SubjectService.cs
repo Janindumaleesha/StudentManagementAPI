@@ -14,7 +14,7 @@ namespace StudentManagementAPI.Services.Subjects
             throw new NotImplementedException();
         }
 
-        public Subject DeleteSubject(int id)
+        public void DeleteSubject(Subject subject)
         {
             throw new NotImplementedException();
         }
@@ -29,7 +29,7 @@ namespace StudentManagementAPI.Services.Subjects
             throw new NotImplementedException();
         }
 
-        public Subject UpdateSubject(int id, Subject subject)
+        public void UpdateSubject(int id, Subject subject)
         {
             throw new NotImplementedException();
         }

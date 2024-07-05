@@ -12,7 +12,7 @@ namespace StudentManagementAPI.Services.Subjects
         public List<Subject> GetAllSubjects();
         public Subject GetSubjectById(int id);
         public Subject CreateSubject(Subject subject);
-        public Subject UpdateSubject(int id, Subject subject);
-        public Subject DeleteSubject(int id);
+        public void UpdateSubject(int id, Subject subject);
+        public void DeleteSubject(Subject subject);
     }
 }
