@@ -26,6 +26,6 @@ namespace StudentManagementAPI.Models
         [Required]
         [MaxLength(20)]
         public string Gender { get; set; }
-        public string SubjectId { get; set; }
+        public int SubjectId { get; set; }
     }
 }
