@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StudentManagementAPI.Models;
@@ -33,6 +34,7 @@ namespace StudentManagementAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult<IEnumerable<SubjectViewModel>> GetAllSubject()
         {
             var subjects = _subjectService.GetAllSubjects();
@@ -48,6 +50,7 @@ namespace StudentManagementAPI.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public IActionResult GetSubjectById(int id)
         {
             var subject = _subjectService.GetSubjectById(id);
@@ -72,6 +75,7 @@ namespace StudentManagementAPI.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public ActionResult UpdateSubject(int id, SubjectViewModel subjectViewModel)
         {
             var getStudent = _subjectService.GetSubjectById(id);
@@ -88,6 +92,7 @@ namespace StudentManagementAPI.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public ActionResult DeleteSubject(int id)
         {
             var getStudent = _subjectService.GetSubjectById(id);
