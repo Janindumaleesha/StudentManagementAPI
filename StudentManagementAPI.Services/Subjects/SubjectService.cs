@@ -61,9 +61,9 @@ namespace StudentManagementAPI.Services.Subjects
                 {
                     Subject subject1 = new Subject();
                     subject1.Id = Convert.ToInt32(dataTable.Rows[i]["Id"]);
-                    subject1.Name = dataTable.Rows[i]["Name"].ToString();
-                    subject1.Building = dataTable.Rows[i]["Building"].ToString();
-                    subject1.HeadTeacher = dataTable.Rows[i]["HeadTeacher"].ToString();
+                    subject1.Name = dataTable.Rows[i]["Name"].ToString().Trim();
+                    subject1.Building = dataTable.Rows[i]["Building"].ToString().Trim();
+                    subject1.HeadTeacher = dataTable.Rows[i]["HeadTeacher"].ToString().Trim();
                     subject.Add(subject1);
                 }
             }
@@ -82,9 +82,9 @@ namespace StudentManagementAPI.Services.Subjects
             if (dataTable.Rows.Count > 0)
             {
                 subject1.Id = Convert.ToInt32(dataTable.Rows[0]["Id"]);
-                subject1.Name = dataTable.Rows[0]["Name"].ToString();
-                subject1.Building = dataTable.Rows[0]["Building"].ToString();
-                subject1.HeadTeacher = dataTable.Rows[0]["HeadTeacher"].ToString();
+                subject1.Name = dataTable.Rows[0]["Name"].ToString().Trim();
+                subject1.Building = dataTable.Rows[0]["Building"].ToString().Trim();
+                subject1.HeadTeacher = dataTable.Rows[0]["HeadTeacher"].ToString().Trim();
             }
             return subject1;
         }

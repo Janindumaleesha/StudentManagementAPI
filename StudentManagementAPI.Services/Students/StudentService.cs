@@ -58,10 +58,10 @@ namespace StudentManagementAPI.Services.Students
                 {
                     Student student1 = new Student();
                     student1.Id = Convert.ToInt32(dataTable.Rows[i]["Id"]);
-                    student1.FirstName = dataTable.Rows[i]["FirstName"].ToString();
-                    student1.LastName = dataTable.Rows[i]["LastName"].ToString();
-                    student1.Class = dataTable.Rows[i]["Class"].ToString();
-                    student1.Gender = dataTable.Rows[i]["Gender"].ToString();
+                    student1.FirstName = dataTable.Rows[i]["FirstName"].ToString().Trim();
+                    student1.LastName = dataTable.Rows[i]["LastName"].ToString().Trim();
+                    student1.Class = dataTable.Rows[i]["Class"].ToString().Trim();
+                    student1.Gender = dataTable.Rows[i]["Gender"].ToString().Trim();
                     student1.SubjectId = Convert.ToInt32(dataTable.Rows[i]["SubjectId"]);
                     student.Add(student1);
                 }
@@ -80,10 +80,10 @@ namespace StudentManagementAPI.Services.Students
             if (dataTable.Rows.Count > 0)
             {
                 student.Id = Convert.ToInt32(dataTable.Rows[0]["Id"]);
-                student.FirstName = dataTable.Rows[0]["FirstName"].ToString();
-                student.LastName = dataTable.Rows[0]["LastName"].ToString();
-                student.Class = dataTable.Rows[0]["Class"].ToString();
-                student.Gender = dataTable.Rows[0]["Gender"].ToString();
+                student.FirstName = dataTable.Rows[0]["FirstName"].ToString().Trim();
+                student.LastName = dataTable.Rows[0]["LastName"].ToString().Trim();
+                student.Class = dataTable.Rows[0]["Class"].ToString().Trim();
+                student.Gender = dataTable.Rows[0]["Gender"].ToString().Trim();
                 student.SubjectId = Convert.ToInt32(dataTable.Rows[0]["SubjectId"]);
             }
             return student;

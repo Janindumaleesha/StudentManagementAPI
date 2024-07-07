@@ -58,9 +58,6 @@ namespace StudentManagementAPI.Controllers
                 return NotFound();
             }
 
-            //var students1 = new List<Student>();
-            //var subjectViewModel = new List<SubjectViewModel>();
-
             foreach (var student in students)
             {
                 if (student.SubjectId == id)
