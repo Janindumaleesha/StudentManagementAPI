@@ -13,5 +13,6 @@ namespace StudentManagementAPI.Services.ViewModels
         public string Name { get; set; }
         public string Building { get; set; }
         public string HeadTeacher { get; set; }
+        public ICollection<StudentViewModel> Students { get; set; } = new List<StudentViewModel>();
     }
 }

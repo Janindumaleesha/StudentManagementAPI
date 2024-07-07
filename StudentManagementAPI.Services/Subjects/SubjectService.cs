@@ -37,9 +37,8 @@ namespace StudentManagementAPI.Services.Subjects
             return subject;
         }
 
-        public string DeleteSubject(int id)
+        public void DeleteSubject(int id)
         {
-            var msg = string.Empty;
             SqlCommand cmd = new SqlCommand("DeleteSubject", con);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Id", id);
@@ -47,12 +46,6 @@ namespace StudentManagementAPI.Services.Subjects
             con.Open();
             int i = cmd.ExecuteNonQuery();
             con.Close();
-
-            if (i > 0)
-            {
-                msg = "Deleted successfully!";
-            }
-            return msg;
         }
 
         public List<Subject> GetAllSubjects()
@@ -98,7 +91,7 @@ namespace StudentManagementAPI.Services.Subjects
 
         public string UpdateSubject(int id, Subject subject)
         {
-            var msg = string.Empty;
+            string msg = string.Empty;
             if (subject != null)
             {
                 SqlCommand cmd = new SqlCommand("UpdateSubject", con);
@@ -114,7 +107,7 @@ namespace StudentManagementAPI.Services.Subjects
 
                 if (i > 0)
                 {
-                    msg = "Updated successfully!";
+                    msg = "Successfully Updated!";
                 }
             }
             return msg;

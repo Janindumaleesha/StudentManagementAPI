@@ -22,5 +22,7 @@ namespace StudentManagementAPI.Models
         [Required]
         [MaxLength(100)]
         public string HeadTeacher { get; set; }
+
+        public ICollection<Student> Students { get; set; } = new List<Student>();
     }
 }

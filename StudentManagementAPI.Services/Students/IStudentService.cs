@@ -12,7 +12,7 @@ namespace StudentManagementAPI.Services.Students
         public List<Student> GetAllStudents();
         public Student GetStudentById(int id);
         public Student CreateStudent(Student student);
-        public void UpdateStudent(int id, Student student);
-        public void DeleteStudent(Student student);
+        public string UpdateStudent(int id, Student student);
+        public void DeleteStudent(int id);
     }
 }

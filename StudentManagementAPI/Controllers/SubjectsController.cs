@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StudentManagementAPI.Models;
+using StudentManagementAPI.Services.Students;
 using StudentManagementAPI.Services.Subjects;
 using StudentManagementAPI.Services.ViewModels;
 
@@ -12,11 +13,13 @@ namespace StudentManagementAPI.Controllers
     public class SubjectsController : ControllerBase
     {
         private readonly ISubjectService _subjectService;
+        private readonly IStudentService _studentService;
         private readonly IMapper _mapper;
 
-        public SubjectsController(ISubjectService subjectService, IMapper mapper)
+        public SubjectsController(ISubjectService subjectService, IStudentService studentService, IMapper mapper)
         {
             _subjectService = subjectService;
+            _studentService = studentService;
             _mapper = mapper;
         }
 
@@ -47,16 +50,28 @@ namespace StudentManagementAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetSubjectById(int id)
         {
-            var student = _subjectService.GetSubjectById(id);
+            var subject = _subjectService.GetSubjectById(id);
+            var students = _studentService.GetAllStudents();
 
-            if (student == null)
+            if (subject == null)
             {
                 return NotFound();
             }
 
-            var studentMap = _mapper.Map<SubjectViewModel>(student);
+            //var students1 = new List<Student>();
+            //var subjectViewModel = new List<SubjectViewModel>();
 
-            return Ok(studentMap);
+            foreach (var student in students)
+            {
+                if (student.SubjectId == id)
+                {
+                    subject.Students.Add(student);
+                }
+            }
+
+            var subjectMap = _mapper.Map<SubjectViewModel>(subject);
+
+            return Ok(subjectMap);
         }
 
         [HttpPut("{id}")]
@@ -70,9 +85,9 @@ namespace StudentManagementAPI.Controllers
             }
 
             var subjectMap = _mapper.Map<Subject>(subjectViewModel);
-            var subject = _subjectService.UpdateSubject(id, subjectMap);
+            _subjectService.UpdateSubject(getStudent.Id, getStudent);
 
-            return NoContent();
+            return Ok(subjectMap);
         }
 
         [HttpDelete("{id}")]
